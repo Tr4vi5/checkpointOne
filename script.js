@@ -16,13 +16,10 @@ function readyNow(){
     // define functions
     function addBtn() {
         $('#content').html('<button id="generate">Generate</button>')
-        
     }
 
     function addDiv(){
         $('#content').append('<div class="numberHouse"></div>');
-        $('.swap-btn').empty();
-        $('.delete-btn').empty();
         clickCounter();
         appendSwap();
         appendDelete();
@@ -31,17 +28,15 @@ function readyNow(){
     function clickCounter(){
         clicks++;
         $('.counter').empty();
+        $('.numberHouse').empty();
         $('.numberHouse').append('<p class="counter">'+ clicks +'</p>');
-        
     }
 
     function appendSwap(){
-       
         $('.numberHouse').append('<button class="swap-btn">Swap</button>')
     }
 
     function appendDelete() {
-        
         $('.numberHouse').append('<button class="delete-btn">Delete</button>')
     }
 
@@ -53,3 +48,5 @@ function readyNow(){
         $(this).parent().remove();
     }
 }
+
+//  I'm not understanding how to give each new div it's own target for the click count.
