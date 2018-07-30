@@ -49,4 +49,4 @@ function readyNow(){
     }
 }
 
-//  I'm not understanding how to give each new div it's own target for the click count.
+//  I'm not understanding how to give each new div it's own target for updating the click count.
