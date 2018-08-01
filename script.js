@@ -5,7 +5,7 @@ $(readyNow);
 function readyNow(){
     console.log('JQ');
     //event handlers
-    $('#content').on('click','#generate', addDiv);
+    $('#content').on('click','#generate', appendDiv);
     $('#content').on('click','.swap-btn', swapColors);
     $('#content').on('click', '.delete-btn', deleteDiv);
     // call functions
@@ -18,26 +18,15 @@ function readyNow(){
         $('#content').html('<button id="generate">Generate</button>')
     }
 
-    function addDiv(){
-        $('#content').append('<div class="numberHouse"></div>');
-        clickCounter();
-        appendSwap();
-        appendDelete();
-    }
-
-    function clickCounter(){
-        clicks++;
-        $('.counter').empty();
-        $('.numberHouse').empty();
-        $('.numberHouse').append('<p class="counter">'+ clicks +'</p>');
-    }
-
-    function appendSwap(){
-        $('.numberHouse').append('<button class="swap-btn">Swap</button>')
-    }
-
-    function appendDelete() {
-        $('.numberHouse').append('<button class="delete-btn">Delete</button>')
+    function appendDiv(){
+        clicks++
+        $('#content').append(`
+            <div class="numberHouse">
+                <p class="counter">${clicks}</p>
+                <button class="swap-btn">Swap</button>
+                <button class="delete-btn">Delete</button>
+            </div>`
+        );
     }
 
     function swapColors(){
@@ -48,5 +37,3 @@ function readyNow(){
         $(this).parent().remove();
     }
 }
-
-//  I'm not understanding how to give each new div it's own target for updating the click count.
